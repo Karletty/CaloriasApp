@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calori App</title>
+    <link rel="StyleSheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" href="Images/favicon.png" type="image/png" />
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <img src="Images/calories.png" alt="logo" class="logo">
+            <h1 class="title">Calori App</h1>
+        </div>
+        <div class="header-container">
+            <h2 class="slogan">Te ayudamos a medir tus calorías</h2>
+            <button class="mode dark"></button>
+        </div>
+    </header>
+    <nav class="navbar">
+        <a class="info-btn" href="#carbs">Carbohidratos</a>
+        <a class="info-btn" href="#vege">Verduras</a>
+        <a class="info-btn" href="#meats">Carnes</a>
+        <a class="info-btn" href="#fruits">Frutas</a>
+        <a class="info-btn" href="#dairy">Lácteos</a>
+    </nav>
+    <main class="main-container">
+        <section class="carrousel">
+            <div class="carrousel-elements">
+                <button class="btn bread no-clicked-btn"></button>
+                <button class="btn cereal no-clicked-btn"></button>
+            </div>
+            <div class="carrousel-elements">
+                <button class="btn pasta no-clicked-btn"></button>
+                <button class="btn rice no-clicked-btn"></button>
+            </div>
+            <div class="carrousel-backfoward">
+                <a class="prev arrow"></a>
+                <h3 class="category-name">NOMBRE CATEGORÍA</h3>
+                <a class="next arrow"></a>
+            </div>
+        </section>
+        <section class="result-container">
+            <div class='result-text'>
+                <p>Las calorías de las comidas escogidas son:</p>
+                <p class="total-result">0</p>
+            </div class='result-text'>
+            <div class="transition">
+                <ul class="transition-elements-container">
+                    <li class="transition-element"><img class="image" alt="comiendo sano" src="Images/healthy1.png">
+                    </li>
+                    <li class="transition-element"><img class="image" alt="comiendo sano" src="Images/healthy2.png">
+                    </li>
+                    <li class="transition-element"><img class="image" alt="comiendo sano" src="Images/healthy3.png">
+                    </li>
+                    <li class="transition-element"><img class="image" alt="comiendo sano" src="Images/healthy4.png">
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <div class="articles-title">
+        <h2 class="articles-title-text">Información Nutricional</h2>
+    </div>
+    <div class="articles">
+        <nav class="navbar">
+            <a class="info-btn" href="#carbs">Carbohidratos</a>
+            <a class="info-btn" href="#vege">Verduras</a>
+            <a class="info-btn" href="#fruits">Frutas</a>
+            <a class="info-btn" href="#meats">Carnes</a>
+            <a class="info-btn" href="#dairy">Lácteos</a>
+            <a class="info-btn" href="#">Regresar</a>
+        </nav>
+        <div class="articles-container">
+            <div class="article" id="carbs">
+                <h3 class="article-title">Carbohidratos</h3>
+                <img src="Images/articles/carb.png" alt="Carbohidratos" class="article-image">
+                <p class="article-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure cum commodi
+                    quae fugit blanditiis veniam
+                    ipsam veritatis odio, omnis provident natus dignissimos nostrum cupiditate maxime officiis,
+                    repellat est.
+                    Ipsam atque nostrum nam possimus voluptas hic porro, nihil aspernatur fugiat esse doloremque
+                    dicta error
+                    cumque unde iure? Laboriosam, illum sed sunt est, dicta delectus maxime numquam cupiditate alias
+                    blanditiis
+                    assumenda repellat excepturi veritatis. Deleniti quisquam nihil numquam reprehenderit incidunt
+                    earum quas,
+                    ea provident voluptatem ipsam totam itaque iusto doloribus accusamus fugiat eligendi id culpa
+                    porro.
+                    Quasi illum recusandae sed, asperiores sequi quam reiciendis nam, similique doloribus quaerat
+                    quidem
+                    facilis dolorem consequuntur.</p>
+            </div>
+            <div class="article" id="vege">
+                <h3 class="article-title">Verduras</h3>
+                <img src="Images/articles/vege.png" alt="Verduras" class="article-image">
+                <p class="article-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure cum commodi
+                    quae fugit blanditiis veniam
+                    ipsam veritatis odio, omnis provident natus dignissimos nostrum cupiditate maxime officiis,
+                    repellat est.
+                    Ipsam atque nostrum nam possimus voluptas hic porro, nihil aspernatur fugiat esse doloremque
+                    dicta error
+                    cumque unde iure? Laboriosam, illum sed sunt est, dicta delectus maxime numquam cupiditate alias
+                    blanditiis
+                    assumenda repellat excepturi veritatis. Deleniti quisquam nihil numquam reprehenderit incidunt
+                    earum quas,
+                    ea provident voluptatem ipsam totam itaque iusto doloribus accusamus fugiat eligendi id culpa
+                    porro.
+                    Quasi illum recusandae sed, asperiores sequi quam reiciendis nam, similique doloribus quaerat
+                    quidem
+                    facilis dolorem consequuntur.</p>
+            </div>
+            <div class="article" id="fruits">
+                <h3 class="article-title">Frutas</h3>
+                <img src="Images/articles/fruits.png" alt="Frutas" class="article-image">
+                <p class="article-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure cum commodi
+                    quae fugit blanditiis veniam
+                    ipsam veritatis odio, omnis provident natus dignissimos nostrum cupiditate maxime officiis,
+                    repellat est.
+                    Ipsam atque nostrum nam possimus voluptas hic porro, nihil aspernatur fugiat esse doloremque
+                    dicta error
+                    cumque unde iure? Laboriosam, illum sed sunt est, dicta delectus maxime numquam cupiditate alias
+                    blanditiis
+                    assumenda repellat excepturi veritatis. Deleniti quisquam nihil numquam reprehenderit incidunt
+                    earum quas,
+                    ea provident voluptatem ipsam totam itaque iusto doloribus accusamus fugiat eligendi id culpa
+                    porro.
+                    Quasi illum recusandae sed, asperiores sequi quam reiciendis nam, similique doloribus quaerat
+                    quidem
+                    facilis dolorem consequuntur.</p>
+            </div>
+            <div class="article" id="meats">
+                <h3 class="article-title">Carnes</h3>
+                <img src="Images/articles/meat.png" alt="Carnes" class="article-image">
+                <p class="article-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure cum commodi
+                    quae fugit blanditiis veniam
+                    ipsam veritatis odio, omnis provident natus dignissimos nostrum cupiditate maxime officiis,
+                    repellat est.
+                    Ipsam atque nostrum nam possimus voluptas hic porro, nihil aspernatur fugiat esse doloremque
+                    dicta error
+                    cumque unde iure? Laboriosam, illum sed sunt est, dicta delectus maxime numquam cupiditate alias
+                    blanditiis
+                    assumenda repellat excepturi veritatis. Deleniti quisquam nihil numquam reprehenderit incidunt
+                    earum quas,
+                    ea provident voluptatem ipsam totam itaque iusto doloribus accusamus fugiat eligendi id culpa
+                    porro.
+                    Quasi illum recusandae sed, asperiores sequi quam reiciendis nam, similique doloribus quaerat
+                    quidem
+                    facilis dolorem consequuntur.</p>
+            </div>
+            <div class="article" id="dairy">
+                <h3 class="article-title">Lácteos</h3>
+                <img src="Images/articles/dairy.png" alt="Carnes" class="article-image">
+                <p class="article-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure cum commodi
+                    quae fugit blanditiis veniam
+                    ipsam veritatis odio, omnis provident natus dignissimos nostrum cupiditate maxime officiis,
+                    repellat est.
+                    Ipsam atque nostrum nam possimus voluptas hic porro, nihil aspernatur fugiat esse doloremque
+                    dicta error
+                    cumque unde iure? Laboriosam, illum sed sunt est, dicta delectus maxime numquam cupiditate alias
+                    blanditiis
+                    assumenda repellat excepturi veritatis. Deleniti quisquam nihil numquam reprehenderit incidunt
+                    earum quas,
+                    ea provident voluptatem ipsam totam itaque iusto doloribus accusamus fugiat eligendi id culpa
+                    porro.
+                    Quasi illum recusandae sed, asperiores sequi quam reiciendis nam, similique doloribus quaerat
+                    quidem
+                    facilis dolorem consequuntur.</p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Recuerda que la alimentación es un elemento importante en la pérdida de peso pero para mejores resultados
+            es mejor acompañar con una sesión de ejercicio diariamente</p>
+        <div class="creator-info">
+            <p>©2021 Karletty Elías</p>
+            <img src="Images/calories.png" alt="logo" class="logo">
+            <div>
+                <a href="https://twitter.com/elias_karletty" target="_blank"><img src="Images/socialMedia/twitter.png"
+                        alt="twitter" class="social-media"></a>
+                <a href="https://www.facebook.com/karletty.elias/" target="_blank"><img
+                        src="Images/socialMedia/facebook.png" alt="facebook" class="social-media"></a>
+                <a href="https://www.instagram.com/karle_elias1310/" target="_blank"><img
+                        src="Images/socialMedia/instagram.png" alt="instagram" class="social-media"></a>
+                <a href="https://github.com/Karletty" target="_blank"><img src="Images/socialMedia/github.png"
+                        alt="github" class="social-media"></a>
+            </div>
+        </div>        
+        <p>Imágenes diseñadas por 
+            <a href="https://www.freepik.com" title="Freepik">Freepik</a>, 
+            <a href="https://www.flaticon.es/autores/wanicon" title="wanicon">wanicon</a>, 
+            <a href="https://www.flaticon.com/authors/becris" title="Becris">Becris</a>, 
+            <a href="https://storyset.com/food">Freepik Storyset</a>, 
+            <a href="https://www.flaticon.es/autores/monkik" title="monkik">monkik</a>, 
+            <a href="https://www.flaticon.es/autores/iconixar" title="iconixar">iconixar</a> y 
+            <a href="https://www.flaticon.es/autores/pixel-perfect" title="Pixel perfect">Pixel perfect</a>
+        </p>
+    </footer>
+    <script src="script.js "></script>
+</body>
+
+</html>
