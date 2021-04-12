@@ -1,43 +1,3 @@
-class Categoria {
-    constructor(categoryName, images, calorieValue, isClicked) {
-        this.categoryName = categoryName;
-        this.images = images;
-        this.calorieValue = calorieValue;
-        this.isClicked = isClicked;
-    }
-}
-let carbohydrates = new Categoria;
-carbohydrates.categoryName = 'Carbohidratos';
-carbohydrates.images = ['bread', 'cereal', 'pasta', 'rice'];
-carbohydrates.calorieValue = [265, 380, 135, 130];
-carbohydrates.isClicked = [false, false, false, false];
-
-let dairyProducts = new Categoria;
-dairyProducts.categoryName = 'Lácteos';
-dairyProducts.images = ['cheese', 'icecream', 'milk', 'yogurt'];
-dairyProducts.calorieValue = [402, 207, 42, 60];
-dairyProducts.isClicked = [false, false, false, false];
-
-let fruits = new Categoria;
-fruits.categoryName = 'Frutas';
-fruits.images = ['apple', 'banana', 'strawberry', 'watermelon'];
-fruits.calorieValue = [52, 89, 33, 30];
-fruits.isClicked = [false, false, false, false];
-
-let vegetables = new Categoria;
-vegetables.categoryName = 'Verduras';
-vegetables.images = ['broccoli', 'cucumber', 'lettuce', 'pepper'];
-vegetables.calorieValue = [34, 16, 15, 40];
-vegetables.isClicked = [false, false, false, false];
-
-let meats = new Categoria;
-meats.categoryName = 'Carnes';
-meats.images = ['chicken', 'fish', 'meat', 'pork'];
-meats.calorieValue = [239, 206, 250, 242];
-meats.isClicked = [false, false, false, false];
-
-
-const allCategories = [carbohydrates, vegetables, fruits, meats, dairyProducts];
 const allBtns = document.getElementsByClassName('btn');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
@@ -54,103 +14,101 @@ const articleTitle = document.querySelector('.articles-title');
 const articles = document.getElementsByClassName('article');
 const articleNavbarContainer = document.querySelector('.articles');
 const footer = document.querySelector('.footer');
-const socialMedia = document.getElementsByClassName("social-media");
-const darkSocialMedia = ["dark-twitter.png", "dark-facebook.png", "dark-instagram.png", "dark-github.png"];
-const normalSocialMedia = ["twitter.png", "facebook.png", "instagram.png", "github.png"]
+const socialMedia = document.getElementsByClassName('social-media');
+const darkSocialMedia = ['dark-twitter.png', 'dark-facebook.png', 'dark-instagram.png', 'dark-github.png'];
+const normalSocialMedia = ['twitter.png', 'facebook.png', 'instagram.png', 'github.png']
 
+const allCategories = [carbohydrates, vegetables, fruits, meats, dairyProducts];
 let clickedMode = false;
-let count = 0;
+let carrouselCount = 0;
 let caloriesResult = 0;
-prev.style.display = 'none';
+prev.classList.add('none');
 categoryText.innerText = allCategories[0].categoryName;
 
 prev.addEventListener('click', function () {
     changeCount('prev');
-    changeBtnStyle(allCategories[count].isClicked, clickedMode);
+    for(let i = 0; i < allBtns.length; i++){
+        changeBtnStyle(allCategories[carrouselCount].dishes[i].isClicked, clickedMode,i);
+    }
 });
 
 next.addEventListener('click', function () {
     changeCount('next');
-    changeBtnStyle(allCategories[count].isClicked, clickedMode);
+    for(let i = 0; i < allBtns.length; i++){
+        changeBtnStyle(allCategories[carrouselCount].dishes[i].isClicked, clickedMode,i);
+    }
 });
 
-for (let k = 0; k < 4; k++) {
+for (let k = 0; k < allBtns.length; k++) {
     allBtns[k].addEventListener('click', function () {
-        allCategories[count].isClicked[k] = !allCategories[count].isClicked[k];
-        changeBtnStyle(allCategories[count].isClicked, clickedMode);
-        sumCalories(allCategories[count].calorieValue[k], allCategories[count].isClicked[k]);
+        allCategories[carrouselCount].dishes[k].isClicked = !allCategories[carrouselCount].dishes[k].isClicked;
+        changeBtnStyle(allCategories[carrouselCount].dishes[k].isClicked, clickedMode, k);
+        sumCalories(allCategories[carrouselCount].dishes[k].calorieValue, allCategories[carrouselCount].dishes[k].isClicked);
     });
 }
 modeImage.addEventListener('click', function () {
     clickedMode = !clickedMode;
     changePageStyle(clickedMode);
-    changeBtnStyle(allCategories[count].isClicked, clickedMode);
+    for(let i = 0; i < allBtns.length; i++){
+        changeBtnStyle(allCategories[carrouselCount].dishes[i].isClicked, clickedMode, i);
+    }
 });
 
-function changeBtnStyle(clickedBtns, clickedMode) {
-    for (let l = 0; l < clickedBtns.length; l++) {
-        if (clickedMode) {
-            if (clickedBtns[l]) {
-                allBtns[l].classList.add('dark-clicked-btn');
-                allBtns[l].classList.remove('no-clicked-btn', 'dark-no-clicked-btn', 'clicked-btn');
-            }
-            else {
-                allBtns[l].classList.add('dark-no-clicked-btn');
-                allBtns[l].classList.remove('no-clicked-btn');
-                allBtns[l].classList.remove('dark-clicked-btn');
-                allBtns[l].classList.remove('clicked-btn');
-            }
+function changeBtnStyle(clickedBtn, clickedMode, btnPosition) {
+    if (clickedMode) {
+        if (clickedBtn) {
+            allBtns[btnPosition].classList.add('dark-selected-btn');
         }
         else {
-            if (clickedBtns[l]) {
-                allBtns[l].classList.add('clicked-btn');
-                allBtns[l].classList.remove('no-clicked-btn');
-                allBtns[l].classList.remove('dark-clicked-btn');
-                allBtns[l].classList.remove('dark-no-clicked-btn');
-            }
-            else {
-                allBtns[l].classList.add('no-clicked-btn');
-                allBtns[l].classList.remove('clicked-btn');
-                allBtns[l].classList.remove('dark-clicked-btn');
-                allBtns[l].classList.remove('dark-no-clicked-btn');
-            }
+            allBtns[btnPosition].classList.add('dark-btn');
+            allBtns[btnPosition].classList.remove('dark-selected-btn');
+        }
+    }
+    else {
+        if (clickedBtn) {
+            allBtns[btnPosition].classList.add('selected-btn');
+            allBtns[btnPosition].classList.remove('dark-selected-btn');
+        }
+        else {
+            allBtns[btnPosition].classList.remove('selected-btn')
+            allBtns[btnPosition].classList.remove('dark-selected-btn');
         }
     }
 }
 function changeCount(direction) {
     if (direction === 'prev') {
-        changeImages(count, direction)
-        count = count - 1;
+        changeImages(carrouselCount, direction)
+        carrouselCount--;
     }
     if (direction === 'next') {
-        changeImages(count, direction)
-        count = count + 1;
+        changeImages(carrouselCount, direction)
+        carrouselCount++;
     }
-    changeCategory(count);
+    changeCategory(carrouselCount);
 
 }
-function changeCategory(count) {
-    if (count > 0) {
-        prev.style.display = 'inline';
+function changeCategory(carrouselCount) {
+    if (carrouselCount > 0) {
+        prev.classList.remove('none');
     } else {
-        prev.style.display = 'none'
+        prev.classList.add('none');
     }
-    if (count < (allCategories.length - 1)) {
-        next.style.display = 'inline';
+    if (carrouselCount < (allCategories.length - 1)) {
+        next.classList.remove('none');
     } else {
-        next.style.display = 'none'
+        next.classList.add('none');
     }
-    categoryText.innerText = allCategories[count].categoryName;
+    categoryText.innerText = allCategories[carrouselCount].categoryName;
 }
-function changeImages(count, direction) {
+function changeImages(carrouselCount, direction) {
     for (let j = 0; j < allBtns.length; j++) {
         if (direction === 'next') {
-            allBtns[j].classList.remove(allCategories[count].images[j]);
-            allBtns[j].classList.add(allCategories[(count + 1)].images[j]);
+            allBtns[j].classList.remove(allCategories[carrouselCount].dishes[j].dishName);
+            allBtns[j].classList.add(allCategories[(carrouselCount + 1)].dishes[j].dishName);
         }
         else {
-            allBtns[j].classList.remove(allCategories[count].images[j]);
-            allBtns[j].classList.add(allCategories[(count - 1)].images[j]);
+            allBtns[j].classList.remove(allCategories[carrouselCount].dishes[j].dishName);
+            allBtns[j].classList.add(allCategories[(carrouselCount - 1)].dishes[j].dishName);
         }
     }
 }
@@ -209,10 +167,10 @@ function changePageStyle(clicked) {
     }
     for (let l = 0; l < socialMedia.length; l++) {
         if (clicked) {
-            socialMedia[l].src = "Images/socialMedia/" + darkSocialMedia[l];
+            socialMedia[l].src = 'Images/socialMedia/' + darkSocialMedia[l];
             socialMedia[l].classList.add('dark-social-media');
         } else {
-            socialMedia[l].src = "Images/socialMedia/" + normalSocialMedia[l];
+            socialMedia[l].src = 'Images/socialMedia/' + normalSocialMedia[l];
             socialMedia[l].classList.remove('dark-social-media');
         }
     }

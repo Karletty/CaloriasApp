@@ -154,20 +154,18 @@ body::-webkit-scrollbar-thumb {
   border: none;
   border-radius: 10%;
   box-shadow: 0px 0px 10px 1px #646464;
-}
-.no-clicked-btn {
   background-color: #d7f679;
 }
-.clicked-btn {
+.selected-btn {
   background-color: #b4ce65;
   box-shadow: inset 0px 0px 10px 1px #646464;
 }
-.dark-clicked-btn {
+.dark-btn {
   background-color: #131c21;
-  box-shadow: inset 0px 0px 10px 1px #646464;
 }
-.dark-no-clicked-btn {
+.dark-selected-btn {
   background-color: #646464;
+  box-shadow: inset 0px 0px 10px 1px #646464;
 }
 .carrousel-backfoward {
   width: 75%;
@@ -192,6 +190,9 @@ body::-webkit-scrollbar-thumb {
 }
 .prev {
   background-image: url("Images/prev.png");
+}
+.none{
+  display: none;
 }
 .category-name {
   font-family: "Kiwi Maru", serif;
